@@ -1,0 +1,17 @@
+import numpy as np
+import random
+N = 10000
+def face_appear(N):
+  radom.seed(0)
+  result = [random.randint(1,6) for _ in range(N)]
+  return result
+list = face_appear(N)
+
+def count_number(list, num):
+  variable = 0
+  for x in list:
+    if x == num:
+      variable += 1
+  return variable
+print(count_number(list, 1))
+      
