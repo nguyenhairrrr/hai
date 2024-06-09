@@ -1,0 +1,40 @@
+x = float(input('x = '))
+def is_number(x):
+  try:
+    float(x)
+    
+  except ValueError:
+    
+    
+    return False
+  return True
+print(is_number(x))
+if is_number(x) == False:
+  print('x must be a number')
+
+name_activation_function = input('activation function(sigmoid/relu/elu): ')
+if name_activation_function not in ['sigmoid', 'relu', 'elu']:
+  print('ten_function_user is not supported')
+
+
+α = 0.01
+import math
+def f(x):
+  
+  if name_activation_function == 'sigmoid':
+    return 1/(1 + math.e**(-x))
+  
+  elif name_activation_function == 'relu':
+    if x <= 0:
+      return 0
+    else:
+      return x
+  
+  elif name_activation_function == 'elu':
+    if x > 0:
+      return x
+    else:
+      return α*(math.e**x - 1)
+  
+    
+print(f'{name_activation_function}: f({x}) = {f(x)}')
