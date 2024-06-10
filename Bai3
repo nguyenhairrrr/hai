@@ -2,23 +2,23 @@ num_samples = int(input('số lượng samples: '))
 loss_name = input('nhập loss name(MAE, MSE): ')
 
 def isnumeric(num_samples):
-  if num_samples == int(n):
+  if num_samples == int(n) and n > 0:
     return True
   else:
     print('number of samples must be an integer number')
     return
 import random
-def loss(num_samples):
-  result = 0
+y = random.uniform(0,10)
+y_hat = random.uniform(0,10)
+for sample in range(num_samples):
   if loss_name == 'MAE':
-    for _ in range(num_samples):
-      result = result + abs(random.uniform(0,10)-random.uniform(0,10))
-    result = (1/num_samples)*result
-    return result
+    
+      result =  abs(y-y_hat)
+      
+      print(f'loss name: MAE, sample: {sample}, pred: {y_hat}, target: {y}, loss: {result}')
+    
   if loss_name == 'MSE':
-    for _ in range(num_samples):
-      result = result + (random.uniform(0,10) - random.uniform(0,10))**2
-    result = (1/num_samples)*result
-    return result
-
-print(f'loss name: {loss_name}, sample: {num_samples}, pred: {random.uniform(0,10)}, target: {random.uniform(0,10)}, loss: {loss(num_samples)}')
+    
+      result = (y - y_hat)**2
+      
+      print(f'loss name: MSE, sample: {sample}, pred: {y_hat}, target: {y}, loss: {result}')
